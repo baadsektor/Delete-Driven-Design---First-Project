@@ -1,0 +1,17 @@
+﻿@page "{Id:int}"
+@model DDDFirst.Feature.Category.Update.IndexModel
+@{
+}
+
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input asp-for="Data.Category.Id" type="hidden" />
+        <div class="form-group">
+            <label asp-for="Data.Category.Name"></label>
+            <input asp-for="Data.Category.Name" class="form-control" />
+            <span asp-validation-for="Data.Category.Name" class="text-danger"></span>
+        </div>
+        <div class="center">
+            <button type="submit" class="btn btn-primary">Zmień</button>
+        </div>
+    </form>

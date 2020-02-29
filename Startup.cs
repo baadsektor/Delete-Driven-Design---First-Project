@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DDDFirst.Infrastructure;
+using MediatR;
+using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +26,9 @@ namespace DDDFirst
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages().AddRazorPagesOptions(o => { o.RootDirectory = "/Feature"; });
+            services.AddMediatR(typeof(Program).Assembly);
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(MediatorPipeline<,>));
+            //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestExceptionProcessorBehavior<,>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

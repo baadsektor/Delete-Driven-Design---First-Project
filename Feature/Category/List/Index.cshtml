@@ -9,7 +9,7 @@ foreach (var category in Model.Data.Categories)
 {
     <p>
         @category.Name
-        <a asp-page="/Category/Update/Index">zmień</a>
+        <a asp-page="/Category/Update/Index" asp-route-Id="@category.Id">zmień</a>
     </p>
 }
 }
